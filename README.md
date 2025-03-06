@@ -160,5 +160,5 @@ export default function(to, from, next) {
 ---
 
 ## Conclusión
-El frontend de **Hunters Campus** es modular y escalable, basado en **Vue.js**, con un manejo eficiente de estado mediante **Vuex**, una API bien estructurada con **Axios**, y un diseño flexible gracias a **SCSS** y **Element UI**. Su arquitectura facilita el mantenimiento y la evolución del proyecto.
+El frontend de **Hunters Campus** es modular y escalable, basado en **Vue.js**, con un manejo eficiente de estado mediante **Vuex**, una API bien estructurada con **Axios**, y un diseño flexible gracias a **SCSS** y **Element UI**. Su arquitectura facilita el mantenimiento y la evolución del proyecto. 
 
