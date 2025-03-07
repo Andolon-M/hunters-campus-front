@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="stylesheet" href="/fontello/css/fontello.css">
     <link rel="shortcut icon" href="<%=BASE_URL%>favicon.ico">
+    <link rel="manifest" href="/manifest.json"> <!-- Se le sumó esta etiqueta-->
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
@@ -16,5 +17,17 @@
     <!-- <script lang="javascript" src="/dflip/js/libs/jquery.min.js" ></script>
      <script lang="javascript" src="/dflip/js/dflip.min.js"></script> -->
     <!-- built files will be auto injected -->
+
+
+    <!-- Se añadio este script-->
+    <script>
+      if ('serviceWorker' in navigator) {
+          window.addEventListener('load', () => {
+              navigator.serviceWorker.register('/service-worker.js')
+                  .then(reg => console.log('Service Worker registrado correctamente:', reg))
+                  .catch(err => console.error('Error al registrar el Service Worker:', err));
+          });
+      }
+  </script>
   </body>
 </html>
