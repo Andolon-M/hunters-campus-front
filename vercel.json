@@ -1,56 +1,63 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "package.json",
-        "use": "@vercel/static-build",
-        "config": {
-          "distDir": "dist",
-          "buildCommand": "npm run build"
-        }
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist",
+        "buildCommand": "npm run build"
       }
-    ],
-    "routes": [
-      {
-        "src": "/static/(.*)",
-        "headers": { 
-          "cache-control": "public, max-age=31536000, immutable" 
-        },
-        "dest": "/static/$1"
-      },
-      {
-        "src": "/(css|js)/(.*)",
-        "headers": { 
-          "cache-control": "public, max-age=31536000, immutable" 
-        },
-        "dest": "/$1/$2"
-      },
-      {
-        "src": "/favicon.ico",
-        "dest": "/favicon.ico"
-      },
-      {
-        "src": "/manifest.json",
-        "dest": "/manifest.json"
-      },
-      {
-        "src": "/service-worker.js",
-        "headers": { 
-          "cache-control": "no-cache",
-          "Service-Worker-Allowed": "/"
-        },
-        "dest": "/service-worker.js"
-      },
-      {
-        "src": "/(.*)",
-        "headers": {
-          "cache-control": "public, max-age=0, must-revalidate"
-        },
-        "dest": "/index.html"
-      }
-    ],
-    "env": {
-      "NODE_ENV": "production",
-      "NODE_OPTIONS": "--openssl-legacy-provider"
     }
+  ],
+  "routes": [
+    {
+      "src": "/img/(.*)",
+      "headers": { 
+        "cache-control": "public, max-age=31536000, immutable" 
+      },
+      "dest": "/img/$1"
+    },
+    {
+      "src": "/static/(.*)",
+      "headers": { 
+        "cache-control": "public, max-age=31536000, immutable" 
+      },
+      "dest": "/static/$1"
+    },
+    {
+      "src": "/(css|js|img)/(.*)",
+      "headers": { 
+        "cache-control": "public, max-age=31536000, immutable"
+      },
+      "dest": "/$1/$2"
+    },
+    {
+      "src": "/favicon.ico",
+      "dest": "/favicon.ico"
+    },
+    {
+      "src": "/manifest.json",
+      "dest": "/manifest.json"
+    },
+    {
+      "src": "/service-worker.js",
+      "headers": { 
+        "cache-control": "no-cache",
+        "Service-Worker-Allowed": "/"
+      },
+      "dest": "/service-worker.js"
+    },
+    {
+      "src": "/(.*)",
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate"
+      },
+      "dest": "/index.html"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production",
+    "NODE_OPTIONS": "--openssl-legacy-provider"
   }
+}
